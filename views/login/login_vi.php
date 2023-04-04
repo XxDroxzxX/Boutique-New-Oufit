@@ -1,10 +1,12 @@
 <?php
+// se crea una variable rutacss para almacenar la direccion raiz en donde estan ubicados los archivos css.
 $rutacss= "http://localhost/Boutique-New-Oufit/";
 
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- en este link se carga esa variable $rutacss y se concatena con la ruta faltante para lograr traer el css de forma correcta -->
   <link rel="stylesheet" href="<?php echo $rutacss;?>/views/css/login.css" type="text/css">
   <title>NEW OUFIT</title>
 </head>
