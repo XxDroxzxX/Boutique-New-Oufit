@@ -1,0 +1,2 @@
+ReWriteEngine On
+ReWriteRule ˄(.*)$login.php?url=$1 [L,QSA]

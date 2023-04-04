@@ -1,8 +1,11 @@
 <?php
+$rutacss= "http://localhost/Boutique-New-Oufit/";
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="<?php echo $rutacss;?>/views/css/login.css" type="text/css">
   <title>NEW OUFIT</title>
 </head>
 <body>
@@ -33,4 +36,4 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
-?>
+
