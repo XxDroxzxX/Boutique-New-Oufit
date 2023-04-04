@@ -1,3 +1,4 @@
+<?php
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,3 +33,4 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
+?>
