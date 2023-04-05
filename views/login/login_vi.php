@@ -18,16 +18,13 @@ $rutacss= "http://localhost/Boutique-New-Oufit/";
                     <h2>Login</h2>
                     <div class="inputbox">
                         <ion-icon name="mail-outline"></ion-icon>
-                        <input type="email" required>
+                        <input type="email"  id="inputEmail" required>
                         <label for="">Correo Electronico</label>
                     </div>
                     <div class="inputbox">
-                        <ion-icon name="lock-closed-outline"></ion-icon>
-                        <input type="password" required>
-                        <label for="">Contraseña</label>
-                    </div>
-                    <div class="forget">
-                        <label for=""><input type="checkbox">Recordarme</label>
+                        <ion-icon name="lock-closed-outline" id="togglePassword"></ion-icon>
+                        <input type="password" id="inputPassword" required>
+                        <label for="inputPassword">Contraseña</label>
                     </div>
                     <button>Acceder</button>
                 </form>
@@ -36,6 +33,7 @@ $rutacss= "http://localhost/Boutique-New-Oufit/";
     </section>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="<?php echo $rutacss;?>/views/js/togglePassword.js"></script>
 </body>
 </html>
 
