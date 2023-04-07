@@ -16,3 +16,5 @@ togglePassword.addEventListener("click",()=>{
     togglePassword.setAttribute("name", type === "text" ? "lock-closed" : "lock-closed-outline");
 
 })
+
+

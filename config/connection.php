@@ -13,9 +13,9 @@ class Connection{
 
     try {
         $connection =new PDO("pgsql:host=$host, dbname=$dbname",$username,$password);
-       // echo "conectado";
+ //echo "conectado";
     } catch (PDOException $exp) {
-    //echo("sin conectar, ". $exp);
+ //echo("sin conectar, ". $exp);
     }
 
     return $connection;
