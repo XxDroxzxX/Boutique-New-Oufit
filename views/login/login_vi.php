@@ -76,6 +76,7 @@ if (isset($_SESSION['error'])) {
 
         document.addEventListener("click", ocultarMensajeError);
     </script>
+    <script src="<?php echo $ruta; ?>/views/js/customValidation.js"></script>
 </body>
 
 </html>
