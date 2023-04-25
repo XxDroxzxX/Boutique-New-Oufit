@@ -12,3 +12,17 @@ console.log(sidebarBtn);
 sidebarBtn.addEventListener("click", ()=>{
   sidebar.classList.toggle("close");
 });
+
+const registerLink = document.getElementById('register-link');
+const homeSection = document.querySelector('.home-section');
+
+registerLink.addEventListener('click', (event) => {
+  event.preventDefault(); 
+  
+  fetch('registroUsuario_vi.php')
+    .then(response => response.text())
+    .then(html => {
+      homeSection.innerHTML = html;
+    })
+    .catch(error => console.error(error));
+});

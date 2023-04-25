@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (isset($_SESSION['email'])) {
+} else {
+  header('Location: http://localhost/Boutique-New-Oufit/');
+}
+?>
+
 <!DOCTYPE html>
 <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
 <html lang="en" dir="ltr">
@@ -74,7 +82,7 @@
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Usuarios</a></li>
-          <li><a href="#">Cosa 1</a></li>
+          <li><a href="#" id="register-link">Registrar</a></li>
           <li><a href="#">Cosa 2</a></li>
           <li><a href="#">Cosa 3 por si acaso</a></li>
         </ul>
@@ -97,15 +105,15 @@
         <div class="profile_name">Manuel Ca</div>
         <div class="job">Scrum Master</div>
       </div>
-      <i class='bx bx-log-out' ></i>
+      <i id="logout" class='bx bx-log-out' onclick="window.location.href='http://localhost/Boutique-New-Oufit/'"></i>
     </div>
   </li>
 </ul>
   </div>
-  <section class="home-section">
+  <section class="home-section" >
     <div class="home-content">
       <i class='bx bx-menu' ></i>
-      <span class="text">Aqui colocale lo queras manuel</span>
+      <span class="text"></span>
     </div>
   </section>
 

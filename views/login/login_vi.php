@@ -2,7 +2,7 @@
 // se crea una variable ruta para almacenar la direccion raiz en donde estan ubicados los archivos css.
 $ruta = "http://localhost/Boutique-New-Oufit/";
 session_start();
-
+session_destroy();
 if (isset($_SESSION['error'])) {
     $mensaje_error = $_SESSION['error'];
     unset($_SESSION['error']);
@@ -80,3 +80,4 @@ if (isset($_SESSION['error'])) {
 </body>
 
 </html>
+

@@ -28,19 +28,20 @@ class LoginController
                 session_start();
                 $_SESSION['email'] = $usuario['email'];
                 // Redirigimos al usuario al dashboard
+                
                 header('Location: views/dashboard/dashboard_vi.php');
-                exit;
+                exit();
                 // Si no se encuentra el usuario iniciamos una sesión y almacenamos un mensaje de error en una variable de sesión
             } else {
                 session_start();
                 $_SESSION['mensaje_error'] = "Usuario y/o contraseña incorrectos";
-
                 // volvemos a redirigimos al usuario a la página de inicio de sesión
                 header('Location: index.php');
                 exit;
             }
         }
     }
+
 }
 
 ?>

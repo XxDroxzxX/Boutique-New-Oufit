@@ -9,7 +9,9 @@ $connection = Connection::connectionBD();
 // Creamos una instancia de la clase LoginController, pasándole la conexión como argumento
 $loginController = new LoginController($connection);
 
+
 // Procesamos el inicio de sesión
 $loginController->procesarInicioSesion();
+
 
 ?>
