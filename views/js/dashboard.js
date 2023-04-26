@@ -13,7 +13,7 @@ sidebarBtn.addEventListener("click", ()=>{
   sidebar.classList.toggle("close");
 });
 const registerLink = document.getElementById('register-link');
-const homeSection = document.querySelector('.home-section');
+const homeSection = document.querySelector('.home-contentt');
 
 registerLink.addEventListener('click', (event) => {
   event.preventDefault(); 

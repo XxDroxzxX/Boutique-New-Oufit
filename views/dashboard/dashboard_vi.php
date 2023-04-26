@@ -96,8 +96,10 @@ if (isset($_SESSION['email'])) {
       <i class='bx bx-menu' ></i>
       <span class="text"></span>
     </div>
+    <div class="home-contentt">
+      
+    </div>
   </section>
-
   <script src="../js/dashboard.js"></script>
 
 </body>
