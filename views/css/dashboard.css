@@ -169,7 +169,7 @@ body{
   width: 260px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
   background: #2f3b2c;
   padding: 12px 0;
   transition: all 0.5s ease;
@@ -202,6 +202,7 @@ body{
   font-size: 18px;
   font-weight: 500;
   white-space: nowrap;
+  cursor:pointer;
 }
 .sidebar.close .profile-details i,
 .sidebar.close .profile-details .profile_name,
@@ -209,7 +210,7 @@ body{
   display: none;
 }
 .sidebar .profile-details .job{
-  font-size: 12px;
+  font-size: 20px;
 }
 .home-section{
   position: relative;
@@ -243,6 +244,9 @@ body{
   font-weight: 600;
 }
 
+#logout{
+  font-size: 35px;
+}
 
 @media screen and (max-width: 400px){
   .sidebar{
@@ -269,4 +273,3 @@ body{
     width: calc(100% - 78px);
   }
 }
-

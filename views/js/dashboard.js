@@ -12,7 +12,6 @@ console.log(sidebarBtn);
 sidebarBtn.addEventListener("click", ()=>{
   sidebar.classList.toggle("close");
 });
-
 const registerLink = document.getElementById('register-link');
 const homeSection = document.querySelector('.home-section');
 

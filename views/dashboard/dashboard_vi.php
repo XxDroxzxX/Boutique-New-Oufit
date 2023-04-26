@@ -27,7 +27,7 @@ if (isset($_SESSION['email'])) {
       <li>
         <a href="#">
           <i class='bx bx-grid-alt' ></i>
-          <span class="link_name">Dashboard</span>
+          <span class="link_name">Inicio</span>
         </a>
         <ul class="sub-menu blank">
           <li><a class="link_name" href="#">Inicio</a></li>
@@ -43,9 +43,9 @@ if (isset($_SESSION['email'])) {
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Inventario</a></li>
-          <li><a href="#">Cosa 1</a></li>
-          <li><a href="#">Cosa 2</a></li>
-          <li><a href="#">Cosa 3 por si acaso</a></li>
+          <li><a href="#">Option</a></li>
+          <li><a href="#">Option</a></li>
+          <li><a href="#">Option</a></li>
         </ul>
       </li>
       <li>
@@ -58,18 +58,9 @@ if (isset($_SESSION['email'])) {
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Facturación</a></li>
-          <li><a href="#">Cosa 1</a></li>
-          <li><a href="#">Cosa 2</a></li>
-          <li><a href="#">Cosa 3 por si acaso</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-pie-chart-alt-2' ></i>
-          <span class="link_name">Estadisticas</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Estadisticas</a></li>
+          <li><a href="#">Option</a></li>
+          <li><a href="#">Option</a></li>
+          <li><a href="#">Option</a></li>
         </ul>
       </li>
       <li>
@@ -83,29 +74,19 @@ if (isset($_SESSION['email'])) {
         <ul class="sub-menu">
           <li><a class="link_name" href="#">Usuarios</a></li>
           <li><a href="#" id="register-link">Registrar</a></li>
-          <li><a href="#">Cosa 2</a></li>
-          <li><a href="#">Cosa 3 por si acaso</a></li>
+          <li><a href="#">Option</a></li>
+          <li><a href="#">Option</a></li>
         </ul>
       </li>
-      <li>
-        <a href="#">
-          <i class='bx bx-history'></i>
-          <span class="link_name">Historial</span>
-        </a>
-        <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">Historial</a></li>
-        </ul>
-      </li>
+     
       <li>
     <div class="profile-details">
-      <div class="profile-content">
-        <img src="../img/profile.jpg" alt="profileImg">
-      </div>
+      <div class="profile-content"  onclick="window.location.href='http://localhost/Boutique-New-Oufit/'">
+      <i id="logout" class='bx bx-log-out'></i>
       <div class="name-job">
-        <div class="profile_name">Manuel Ca</div>
-        <div class="job">Scrum Master</div>
+        <div class="job">Cerrar Sesión</div>
       </div>
-      <i id="logout" class='bx bx-log-out' onclick="window.location.href='http://localhost/Boutique-New-Oufit/'"></i>
+      </div>
     </div>
   </li>
 </ul>
