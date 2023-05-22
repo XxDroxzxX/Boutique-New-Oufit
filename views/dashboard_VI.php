@@ -1,28 +1,33 @@
 <?php
 class dashboard_VI
 {
-    function __construct()
+    public function __construct()
     {
     }
-    function verDashboard()
+
+    public function verDashboard()
     {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        require_once "libs/connection.php";
         require_once "models/users_MO.php";
+
         $connection = new connection();
+
         $users_MO = new users_MO($connection);
         $arreglo_administrativo = $users_MO->seleccionarRol($_SESSION['email']);
         $objeto_administrativo = $arreglo_administrativo[0];
         $nombre_rol = $objeto_administrativo->nombre_rol;
-
         ?>
+
         <!DOCTYPE html>
-        <!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
         <html lang="en" dir="ltr">
 
         <head>
             <meta charset="UTF-8">
-            <title> Dashboard </title>
+            <title>Dashboard</title>
             <link rel="stylesheet" href="dist/css/dashboard.css">
-            <!-- Boxiocns CDN Link -->
             <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
             <link rel="stylesheet" href="dist/css/style.css">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,37 +79,32 @@ class dashboard_VI
                             <li><a href="#">Option</a></li>
                         </ul>
                     </li>
-                    <?php
-                    if ($nombre_rol == 'administrador' || $nombre_rol == 'gerente') {
-                        echo '<li>
-                        <div class="iocn-link">
-                            <a href="#">
-                                <i class="bx bxs-user-account"></i>
-                                <span class="link_name">Usuarios</span>
-                            </a>
-                            <i class="bx bxs-chevron-down arrow"></i>
-                        </div>
-                        <ul class="sub-menu">
-                            <li><a class="link_name" href="#">Usuarios</a></li>
-                            <li><a href="#" id="register-link">Registrar</a></li>
-                            <li><a href="#">Option</a></li>
-                            <li><a href="#">Option</a></li>
-                        </ul>
-                    </li>';
-                    }
-
-                    ?>
-
-                    <li>
-                        <div class="profile-details">
-                            <div class="profile-content" onclick="salir()">
-                                <i id="logout" class='bx bx-log-out'></i>
-                                <div class="name-job">
-                                    <div class="job">Cerrar Sesión</div>
-                                </div>
+                    <?php if ($nombre_rol == 'administrador' || $nombre_rol == 'gerente'): ?>
+                        <li>
+                            <div class="iocn-link">
+                                <a href="#">
+                                    <i class="bx bxs-user-account"></i>
+                                    <span class="link_name">Usuarios</span>
+                                </a>
+                                <i class="bx bxs-chevron-down arrow"></i>
+                            </div>
+                            <ul class="sub-menu">
+                                <li><a class="link_name" href="#">Usuarios</a></li>
+                                <li><a href="#" onclick="verModulo('users_VI/agregarUsers');">Registrar</a></li>
+                        </li>
+                    </ul>
+                    </li>
+                <?php endif; ?>
+                <li>
+                    <div class="profile-details">
+                        <div class="profile-content" onclick="salir()">
+                            <i id="logout" class='bx bx-log-out'></i>
+                            <div class="name-job">
+                                <div class="job">Cerrar Sesión</div>
                             </div>
                         </div>
-                    </li>
+                    </div>
+                </li>
                 </ul>
             </div>
             <section class="home-section">
@@ -112,31 +112,32 @@ class dashboard_VI
                     <i class='bx bx-menu'></i>
                     <span class="text"></span>
                 </div>
-                <div class="home-contentt">
-
+                <div class="home-contentt" id="contenido">
                 </div>
             </section>
+            <script src="plugins/jquery.min.js"></script>
             <script src="dist/js/dashboard.js"></script>
             <script>
                 var nombreRol = '<?php echo $nombre_rol; ?>';
 
+                function verModulo(ruta) {
+                    $.post(ruta, function (respuesta) {
+                        $('#contenido').html(respuesta);
+                    });
+                }
+
+
+
                 function salir() {
                     fetch('login_CO/salir', { method: 'POST' })
                         .then(function (response) {
-                            if (nombreRol === 'administrador' || nombreRol === 'gerente') {
-                                location.href = "index.php";
-                            } else {
-                                location.href = "index.php";
-                            }
+                            location.href = "index.php";
                         });
                 }
             </script>
-
         </body>
 
         </html>
         <?php
     }
 }
-
-?>

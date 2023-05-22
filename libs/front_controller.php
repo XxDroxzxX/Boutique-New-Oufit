@@ -1,44 +1,62 @@
 <?php
+
 class front_controller
 {
-
-    function __construct($ruta)
+    public function __construct($ruta)
     {
-
         if (empty($ruta)) {
-
-            require_once "views/dashboard_VI.php";
-
-            $dashboard_VI = new dashboard_VI();
-
-            $dashboard_VI->verDashboard();
-
+            $this->loadDashboard();
         } else {
+            $rutaArray = explode('/', $ruta);
 
-            list($clase, $metodo) = explode('/', $ruta);
+            if (count($rutaArray) == 2) {
+                $clase = $rutaArray[0];
+                $metodo = $rutaArray[1];
+                $sufijo = substr($clase, -3);
 
-            $sufijo = substr($clase, -2);
+                switch ($sufijo) {
+                    case '_VI':
+                        $carpeta = 'views';
+                        break;
+                    case '_CO':
+                        $carpeta = 'controllers';
+                        break;
+                    default:
+                        exit('ERROR: sufijo no válido');
+                }
 
-            if ($sufijo == 'VI') {
-
-                $carpeta = 'views';
-
-            } else if ($sufijo == 'CO') {
-
-                $carpeta = 'controllers';
-
+                $this->loadClass($carpeta, $clase, $metodo);
             } else {
-
-                exit('ERROR: sufijo no enviado');
+                exit('ERROR: Ruta inválida');
             }
+        }
+    }
 
-            require_once $carpeta . "/" . $clase . ".php";
 
+
+    private function loadDashboard()
+    {
+        require_once "views/dashboard_VI.php";
+        $dashboard_VI = new dashboard_VI();
+        $dashboard_VI->verDashboard();
+    }
+
+    private function loadClass($carpeta, $clase, $metodo)
+    {
+        require_once "$carpeta/$clase.php";
+
+        if (class_exists($clase)) {
             $instancia = new $clase();
 
-            $instancia->$metodo();
+            if (method_exists($instancia, $metodo)) {
+                $instancia->$metodo();
+            } else {
+                exit("ERROR: El método $metodo no existe en la clase $clase");
+            }
+        } else {
+            exit("ERROR: La clase $clase no existe");
         }
-
     }
 }
+
 ?>

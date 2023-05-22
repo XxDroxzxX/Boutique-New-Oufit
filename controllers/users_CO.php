@@ -2,14 +2,14 @@
 
 require_once "modelos/users_MO.php";
 
-class estudiantes_CO
+class users_CO
 {
 
     function __construct()
     {
     }
 
-    function agregarEstudiantes()
+    function agregarUsers()
     {
 
         $connection = new connection();
